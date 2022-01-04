@@ -1,0 +1,22 @@
+﻿@model IEnumerable<WebApplication1.Models.Comment>
+@using System.Web;
+
+    @{
+        ViewData["Title"] = "Index";
+    }
+
+    <h1>Index</h1>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+
+    @foreach (var comments in Model)
+    {
+        <div class="Comment">
+            <div class="Content">@Html.Raw(comments.Content)</div>
+            <div class="TimeStamp text-muted">@comments.TimeStamp</div>
+            <a asp-action="Delete" asp-route-id="@comments.Id">Delete</a>
+        </div>
+    }
+
